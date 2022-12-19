@@ -1,0 +1,159 @@
+// .send-form {
+//   cursor: pointer;
+//   padding: 10px 30px;
+//   background-color: #83b566;
+//   border: 2px solid #83b566;
+//   color: #ffffff;
+//   font-size: 18px;
+//   text-transform: uppercase;
+//   transition: 0.3s;
+// }
+// .form-control:focus {
+//   border-color: #83b566;
+//   box-shadow: 0 0 0 0.2rem rgba(131, 181, 102, 0.25);
+// }
+// .btn:hover {
+//   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.35);
+// }
+// .success-message {
+//   text-align: center;
+// }
+// .success-message h1 {
+//   color: #ffffff;
+//   margin-top: 3em;
+// }
+// importing core styling file
+
+@keyframes contact-form-show {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.contact-form {
+  max-width: 700px;
+
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  background-color: rgba(#000000, 0.45);
+  width: calc(100vw - 2em);
+  max-width: 480px;
+  padding: 1.5em 2em;
+  border-radius: 1.5em;
+  box-shadow: 0 2em 3em rgba(#000000, 0.5);
+  backdrop-filter: blur(0.4em);
+  animation: contact-form-show 160ms ease-out;
+  transition: opacity 160ms ease-out, width 0ms ease-out 160ms,
+    height 0ms ease-out 160ms;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section {
+  padding-bottom: 1.5em;
+  box-sizing: border-box;
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.contact-cancel {
+  color: #ffffff;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.p-none {
+  padding: 0;
+}
+
+.m-none {
+  margin: 0;
+}
+
+.mb-whole {
+  margin-bottom: 1em;
+}
+
+.ml-whole {
+  margin-left: 1em;
+}
+
+.mb-half {
+  margin-bottom: 0.5em;
+}
+
+.ml-half {
+  margin-left: 0.5em;
+}
+
+.mb-quarter {
+  margin-bottom: 0.25em;
+}
+
+.ml-quarter {
+  margin-left: 0.25em;
+}
+
+.form-item {
+  width: 100%;
+  margin-bottom: 1em;
+  position: relative;
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    color: #ffffff;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: rgba(#000000, 0.5);
+    width: 100%;
+    padding: 1.8em 1em 0.8em 2.5em;
+    border: 0;
+    border-radius: 0.75em;
+    outline: 0;
+    margin: 0;
+    box-sizing: border-box;
+    &::placeholder {
+      color: transparent;
+    }
+    &:not(:placeholder-shown) + label {
+      font-size: 0.8em;
+      top: 0.65em;
+      left: 1em;
+    }
+  }
+  i.icon {
+    position: absolute;
+    top: 1.8em;
+    left: 1em;
+  }
+  label.lbl-floating {
+    color: #c2c2c2;
+    position: absolute;
+    top: 1.8em;
+    left: 2.5em;
+    pointer-events: none;
+    transition: font-size 64ms ease-out, top 64ms ease-out, left 64ms ease-out;
+  }
+}

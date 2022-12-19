@@ -1,0 +1,69 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="toggelMenu()">
+      <img src="./assets/svg/icon_menu.svg" alt="menu" />
+    </button>
+    <a href="">
+      <img src="./assets/svg/logo_yard_sale.svg" alt="logo" />
+    </a>
+    <a href="">
+      <img src="./assets/svg/icon_shopping_cart.svg" alt="logo" />
+    </a>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button (click)="toggelMenu()">Close</button>
+    <ul>
+      <li><a href="">All</a></li>
+      <li><a href="">Clothes</a></li>
+      <li><a href="">Electronics</a></li>
+    </ul>
+  </div>
+</div>
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="./assets/svg/logo_yard_sale.svg" alt="logo" />
+      </a>
+      <ul>
+        <li><a href="">All</a></li>
+        <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div>
+        <button class="custom-btn activeForm" (click)="toggleform()">
+          <span>Login Panel</span>
+        </button>
+      </div>
+      <div class="account">
+        <button
+          class="custom-btn btn"
+          *ngIf="!profile; else elseBlock"
+          (click)="login()"
+        >
+          <span> Login</span>
+        </button>
+        <ng-template #elseBlock> {{ profile?.email }}</ng-template>
+      </div>
+      <div class="cart">
+        <a href="">
+          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo" />
+        </a>
+        <span class="counter">{{ counter }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->
+<!-- <div class="" *ngIf="activeForm === true">
+  <app-form></app-form>
+</div> -->
+
+<!-- <button class="custom-btn btn-12" (click)="login()">
+  <span>Click!</span><span>Login</span>
+</button> -->
+<!-- <button class="custom-btn btn-12" (click)="getProfile()">
+  <span>Click!</span><span>Get Profile</span>
+</button> -->

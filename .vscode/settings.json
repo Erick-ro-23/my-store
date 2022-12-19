@@ -1,0 +1,5 @@
+{
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.enabled": true,
+  "python.formatting.provider": "black"
+}

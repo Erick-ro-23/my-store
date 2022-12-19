@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- COn FOnt Aweson -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Panel of Form</title>
+  </head>
+  <body>
+    <div class="contact-form">
+      <form>
+        <div class="contact-wrapper">
+          <div class="contact-section">
+            <h2 class="p-none m-none mb-quarter text-white">
+              <i class="far fa-envelope"></i
+              ><span class="ml-half">Contact Me</span>
+            </h2>
+          </div>
+          <div class="contact-section">
+            <div class="form-item">
+              <input
+                id="txtFullName"
+                type="text"
+                placeholder="Full Name (Optional)"
+              />
+
+              <label class="lbl-floating" for="txtFullName"
+                >Full Name (Optional)</label
+              ><i class="icon text-white fas fa-user"> </i>
+            </div>
+            <div class="form-item">
+              <input
+                id="txtEmail"
+                type="email"
+                placeholder=" E-Mail Address"
+              />
+              <label class="lbl-floating" for="txtEmail">E-Mail Address</label
+              ><i class="icon text-white fas fa-at"></i>
+            </div>
+            <div class="form-item">
+              <textarea
+                id="txtContent"
+                placeholder="Your message to the developer"
+                rows="5"
+              ></textarea>
+              <label class="lbl-floating" for="txtContent"
+                >Your message to the developer</label
+              ><i class="icon text-white far fa-comment"></i>
+            </div>
+          </div>
+          <div class="contact-section text-right">
+            <button
+              class="btn-open ml-whole"
+              type="cancel button"
+              (click)="closeForm()"
+            >
+              <i class="far fa-paper-plane"></i
+              ><span class="ml-half">Cancel</span>
+            </button>
+            <button class="btn-open ml-whole" type="button">
+              <i class="far fa-paper-plane"></i
+              ><span class="ml-half">Send</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <body></body>
+  </body>
+</html>

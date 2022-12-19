@@ -1,0 +1,273 @@
+.show-mobile {
+  display: block;
+  box-shadow: 0px 2px 5px rgb(black, 0.2);
+  > div {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      border: 0;
+      background: transparent;
+    }
+  }
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+    transition: all ease-out 0.5s;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
+
+.hide-mobile {
+  display: none;
+  box-shadow: 0px 2px 5px rgb(black, 0.2);
+  > div {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    margin-right: 1em;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+      list-style: none;
+      a {
+        margin: 0 0.2em;
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    .account {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+
+  .loginPanel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+    transition: all ease-out 0.5s;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
+
+button {
+  margin: 10px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* 3 */
+//boton Login Panel:
+.activeForm {
+  margin: 10px;
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 172, 238, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.activeForm span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.activeForm:before,
+.activeForm:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.activeForm:before {
+  height: 0%;
+  width: 2px;
+}
+.activeForm:after {
+  width: 0%;
+  height: 2px;
+}
+.activeForm:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.activeForm:hover:before {
+  height: 100%;
+}
+.activeForm:hover:after {
+  width: 100%;
+}
+.activeForm span:hover {
+  color: rgba(2, 126, 251, 1);
+}
+.activeForm span:before,
+.activeForm span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.activeForm span:before {
+  width: 2px;
+  height: 0%;
+}
+.activeForm span:after {
+  width: 0%;
+  height: 2px;
+}
+.activeForm span:hover:before {
+  height: 100%;
+}
+.activeForm span:hover:after {
+  width: 100%;
+}
+
+//boton Login
+.btn {
+  margin: 10px;
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 172, 238, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn:before,
+.btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.btn:before {
+  height: 0%;
+  width: 2px;
+}
+.btn:after {
+  width: 0%;
+  height: 2px;
+}
+.btn:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn:hover:before {
+  height: 100%;
+}
+.btn:hover:after {
+  width: 100%;
+}
+.btn span:hover {
+  color: rgba(2, 126, 251, 1);
+}
+.btn span:before,
+.btn span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.btn span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn span:hover:before {
+  height: 100%;
+}
+.btn span:hover:after {
+  width: 100%;
+}
