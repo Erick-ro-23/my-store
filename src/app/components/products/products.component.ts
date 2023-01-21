@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-import { zip } from 'rxjs';
 
 import {
   Producto,
@@ -10,7 +9,7 @@ import {
 
 import { StoreService } from '../../services/store.service';
 import { ProductsService } from '../../services/products.service';
-import { da } from 'date-fns/locale';
+// import { da } from 'date-fns/locale';
 
 // esto es de swiper nuevo que pruebo
 
@@ -19,7 +18,7 @@ import { SwiperComponent } from 'swiper/angular';
 // import Swiper core and required modules
 import SwiperCore, { Mousewheel, Pagination } from 'swiper';
 import { ThisReceiver } from '@angular/compiler';
-import { pipe } from 'rxjs';
+// import { pipe } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 
 // install Swiper modules
@@ -32,10 +31,12 @@ SwiperCore.use([Mousewheel, Pagination]);
   styleUrls: ['./products.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent {
   myShoppingCart: Producto[] = [];
   total = 0;
-  products: Producto[] = [];
+  @Input() products: Producto[] = []; //insertamos los roductos desde el home
+  @Output() leadImgs = new EventEmitter<any>();
+
   showProductDetail = false;
   productChosen: Producto = {
     id: '',
@@ -48,8 +49,7 @@ export class ProductsComponent implements OnInit {
     },
     description: '',
   };
-  limit = 10;
-  offset = 0;
+
   statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
 
   today = new Date();
@@ -60,14 +60,6 @@ export class ProductsComponent implements OnInit {
     private productsService: ProductsService
   ) {
     this.myShoppingCart = this.storeService.getShoppingCart();
-  }
-
-  ngOnInit(): void {
-    // this.loadMore();
-    this.productsService.getProductsBypage(10, 0).subscribe((data) => {
-      //vamos a traer la informacion lista que hayamos traido desde la API
-      this.products = data;
-    });
   }
 
   onAddToShoppingCart(product: Producto) {
@@ -148,13 +140,7 @@ export class ProductsComponent implements OnInit {
     });
   }
   // paginacion cargando cada vez mas 10 elementos a nuestro arreglo
-  loadMore() {
-    this.productsService
-      .getProductsBypage(this.limit, this.offset)
-      .subscribe((data) => {
-        //vamos a traer la informacion lista que hayamos traido desde la API
-        this.products = this.products.concat(data);
-        this.offset += this.limit;
-      });
+  imgMore() {
+    this.leadImgs.emit(true);
   }
 }
