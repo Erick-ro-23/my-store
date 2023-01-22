@@ -64,7 +64,7 @@ export class ProductsService {
   }
   // Manejo de los errores:
   getProduct(id: string) {
-    return this.http.get<Producto>(`${this.apiUrl}/products/${id}`).pipe(
+    return this.http.get<Producto>(`${this.apiUrl}/${id}`).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status == HttpStatusCode.Conflict) {
           return throwError(() => new Error('Algo esta fallando en el Server'));
@@ -88,7 +88,7 @@ export class ProductsService {
   }
   // paginación
   getProductsBypage(limit: number, offset: number) {
-    return this.http.get<Producto[]>(`${this.apiUrl}`, {
+    return this.http.get<Producto[]>(`${this.apiUrl}/products`, {
       params: { limit, offset },
     });
   }

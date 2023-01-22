@@ -1,1 +1,6 @@
-<app-products [products]="products"></app-products>
+<!-- <app-products [products]="products"></app-products> -->
+
+<app-products
+  [products]="products"
+  (leadImgs)="loadMore($event)"
+></app-products>

@@ -32,4 +32,14 @@ export class CategoryComponent implements OnInit {
         });
     }
   }
+
+  loadMore(runMoreImg: boolean) {
+    this.productsService
+      .getProductsBypage(this.limit, this.offset)
+      .subscribe((data) => {
+        //vamos a traer la informacion lista que hayamos traido desde la API
+        this.products = this.products.concat(data);
+        this.offset += this.limit;
+      });
+  }
 }
