@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { StoreService } from '../../services/store.service';
+import { AuthService } from '../../services/auth.service';
+import { CategoriesService } from '../../services/categories.service';
+
 import { AppComponent } from 'src/app/app.component';
 import { User } from '../../models/user-model';
-import { AuthService } from '../../services/auth.service';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-nav',
@@ -15,12 +18,14 @@ export class NavComponent implements OnInit {
   activeForm = false;
   counter = 0;
   profile: User | null = null;
+  categories: Category[] = [];
 
   constructor(
     private appComponent: AppComponent,
     private storeService: StoreService,
     private openF: UsersService,
-    private authService: AuthService
+    private authService: AuthService,
+    private categoriesService: CategoriesService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +36,7 @@ export class NavComponent implements OnInit {
     this.openF.$send.subscribe((valor) => {
       this.activeForm = valor;
     });
+    this.getAllCategories();
     // this.openF.$send.subscribe((userlog) => {
     //   this.profile = userlog;
     // });
@@ -58,5 +64,11 @@ export class NavComponent implements OnInit {
       .subscribe((user) => {
         this.profile = user;
       });
+  }
+
+  getAllCategories() {
+    this.categoriesService.getAll().subscribe((data) => {
+      this.categories = data;
+    });
   }
 }

@@ -13,9 +13,15 @@
   <div class="side-menu" [class.active]="activeMenu">
     <button (click)="toggelMenu()">Close</button>
     <ul>
-      <li><a href="">All</a></li>
-      <li><a href="">Clothes</a></li>
-      <li><a href="">Electronics</a></li>
+      <li><a routerLinkActive="active" routerLink="home">All</a></li>
+      <li>
+        <a
+          routerLinkActive="active"
+          *ngFor="let item of categories"
+          [routerLink]="['/category', item.id]"
+          >{{ item.name }}</a
+        >
+      </li>
     </ul>
   </div>
 </div>
@@ -26,9 +32,15 @@
         <img src="./assets/svg/logo_yard_sale.svg" alt="logo" />
       </a>
       <ul>
-        <li><a href="">All</a></li>
-        <li><a href="">Clothes</a></li>
-        <li><a href="">Electronics</a></li>
+        <li><a routerLinkActive="active" routerLink="home">All</a></li>
+        <li>
+          <a
+            routerLinkActive="active"
+            *ngFor="let item of categories"
+            [routerLink]="['/category', item.id]"
+            >{{ item.name }}</a
+          >
+        </li>
       </ul>
     </nav>
     <div class="info">
