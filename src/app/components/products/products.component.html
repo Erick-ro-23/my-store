@@ -1,21 +1,25 @@
 <p>La cantidad: {{ myShoppingCart.length }}</p>
 <p>Precio Total: ${{ total }}</p>
-<p>Today: {{ today | date: "short" }}</p>
+<p>Today: {{ today | date : "short" }}</p>
 <!-- fecha actual y le damos un formato corto -->
-<p>Otra fecha {{ date | date: "yyyy...dd...MM" }}</p>
+<p>Otra fecha {{ date | date : "yyyy...dd...MM" }}</p>
 <!-- otra fecha que elejimos y le damos nuetro propio formato -->
 <p>Today: {{ today | timeAgo }}</p>
 <!-- Da la diferencia de la fecha actual con respecto a una elejida-->
-<p>
-  {{ "hOLA ErICK DanIEl COmO vAs" | uppercase }}
-  <!-- va a transformar toda nuestra cadena a Mayusculas -->
-</p>
-<p>
-  {{
-    "Este es un parrafo de prueba, para ver si las letras se cambian a numeros"
-      | letraNumero
-  }}
-</p>
+<!-- <p> -->
+<!-- {{ "hOLA ErICK DanIEl COmO vAs" | uppercase }} -->
+<!-- va a transformar toda nuestra cadena a Mayusculas -->
+<!-- </p> -->
+<!-- <p> -->
+<!-- {{ -->
+<!-- "Este es un parrafo de prueba, para ver si las letras se cambian a numeros" -->
+<!-- | letraNumero -->
+<!-- }} -->
+<!-- </p> -->
+
+<!-- da un salto de linea -->
+<br />
+
 <!-- Esto si es de mi store -->
 <button (click)="createNewProduct()">create</button>
 <button (click)="onShowDetail('12122')">datail not found</button>
@@ -27,7 +31,7 @@
     (addedProduct)="onAddToShoppingCart($event)"
     (showProduct)="onShowDetail($event)"
   ></app-product>
-  <button (click)="loadMore()">Load more</button>
+  <button (click)="imgMore()">Load more</button>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
   {{ statusDetail }}

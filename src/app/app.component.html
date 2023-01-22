@@ -1,6 +1,15 @@
 <app-nav></app-nav>
+<router-outlet></router-outlet>
 
-<div>
+<div class="" *ngIf="activeForm === true">
+  <form action=""><app-form></app-form></form>
+</div>
+<hr />
+
+<!-- <app-products></app-products> -->
+
+<hr />
+<!-- <div>
   <button class="custom-btn btn-12" (click)="createUser()">
     <span>Click!</span><span>Create User</span>
   </button>
@@ -11,32 +20,14 @@
   <button class="custom-btn btn-12" (click)="deletUser(userChosen)">
     <span>Click!</span><span>Delete Users</span>
   </button>
-</div>
-<button (click)="dowloadPdf()">Descargar PDF</button>
+</div> -->
+<!-- <button (click)="dowloadPdf()">Descargar PDF</button>
 <p>
-  <a href="../assets/files/texto.txt" download>Descargar</a>
-  <!-- descargamos un archivo de forma nativa con la funsion dowload de html -->
-</p>
-<p>
-  <!-- para subir un archivo -->
-  <input type="file" (change)="onUpload($event)" />
-  <img *ngIf="imgRta" [src]="imgRta" alt="" />
-</p>
-
-<div class="" *ngIf="activeForm === true">
-  <form action=""><app-form></app-form></form>
-</div>
-<hr />
-<app-products></app-products>
-
-<!-- <h1>Componentes y Servicios</h1>
-<p><input type="text" [(ngModel)]="imgParent" /></p>
-<button (click)="toggleImg()">Toggle Img</button>
-<p>{{ showImg }}</p>
-<app-img
-  *ngIf="showImg"
-  (loaded)="onLoaded($event)"
-  [img]="imgParent"
-></app-img> -->
-
-<hr />
+  <a href="../assets/files/texto.txt" download>Descargar</a> -->
+<!-- descargamos un archivo de forma nativa con la funsion dowload de html -->
+<!-- </p> -->
+<!-- <p> -->
+<!-- para subir un archivo -->
+<!-- <input type="file" (change)="onUpload($event)" /> -->
+<!-- <img *ngIf="imgRta" [src]="imgRta" alt="" /> -->
+<!-- </p> -->
