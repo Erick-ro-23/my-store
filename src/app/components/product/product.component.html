@@ -1,9 +1,15 @@
-<app-img *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
-<h2>{{ product.price | currency: "COP" }}</h2>
+<a [routerLink]="['/product', product.id]">
+  <app-img
+    *ngIf="product.images.length > 0"
+    [img]="product.images[0]"
+  ></app-img>
+</a>
+
+<h2>{{ product.price | currency : "COP" }}</h2>
 <!-- le pone una formato adecuado -->
 <!-- Los titulos se van a transformar a un sentido contrario -->
 <p>{{ product.title | reverse }}</p>
-<p *ngIf="product.taxes">{{ product.taxes | currency: "COP" }}</p>
+<p *ngIf="product.taxes">{{ product.taxes | currency : "COP" }}</p>
 <p appHighlight>{{ product.description }}</p>
 <button (click)="onAddtoCart()">Add cart</button>
 <button (click)="onShowDetail()">Ver Detalle</button>

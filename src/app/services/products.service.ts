@@ -104,4 +104,25 @@ export class ProductsService {
   delete(id: string) {
     return this.http.delete<boolean>(`${this.apiUrl}/products/${id}`);
   }
+
+  getOne(id: string) {
+    return this.http.get<Producto>(`${this.apiUrl}/products/${id}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status == HttpStatusCode.Conflict) {
+          return throwError(() => new Error('Algo esta fallando en el Server'));
+          //return throwError('Algo esta fallando en el Server'); //esta en desuso
+        }
+        if (error.status == HttpStatusCode.NotFound) {
+          return throwError(() => new Error('El producto no existe'));
+          //return throwError('El producto no existe');
+        }
+        if (error.status == HttpStatusCode.Unauthorized) {
+          return throwError(
+            () => new Error('No estas permitido para ingrasar')
+          );
+        }
+        return throwError(() => new Error('Ups algo salio mal'));
+      })
+    );
+  }
 }
