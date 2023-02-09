@@ -14,12 +14,12 @@ import { ProductsService } from '../../services/products.service';
 // esto es de swiper nuevo que pruebo
 
 import { ViewEncapsulation, ViewChild } from '@angular/core';
-import { SwiperComponent } from 'swiper/angular';
+// import { SwiperComponent } from 'swiper/angular';
 // import Swiper core and required modules
 import SwiperCore, { Mousewheel, Pagination } from 'swiper';
-import { ThisReceiver } from '@angular/compiler';
-// import { pipe } from 'rxjs';
-import { Title } from '@angular/platform-browser';
+// import { ThisReceiver } from '@angular/compiler';
+// // import { pipe } from 'rxjs';
+// import { Title } from '@angular/platform-browser';
 
 // install Swiper modules
 SwiperCore.use([Mousewheel, Pagination]);
@@ -35,21 +35,29 @@ export class ProductsComponent {
   myShoppingCart: Producto[] = [];
   total = 0;
   @Input() products: Producto[] = []; //insertamos los roductos desde el home
+  // @Input() productId: string |null = null;
+  @Input()
+  set productId(id: string | null) {
+    if (id) {
+      this.onShowDetail(id);
+    }
+  }
   @Output() leadImgs = new EventEmitter<any>();
 
   showProductDetail = false;
-  productChosen: Producto = {
-    id: '',
-    price: 0,
-    images: [],
-    title: '',
-    category: {
-      id: '',
-      name: '',
-    },
-    description: '',
-  };
+  // productChosen: Producto = {
+  //   id: '',
+  //   price: 0,
+  //   images: [],
+  //   title: '',
+  //   category: {
+  //     id: '',
+  //     name: '',
+  //   },
+  //   description: '',
+  // };
 
+  productChosen: Producto | null = null;
   statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
 
   today = new Date();
@@ -70,12 +78,15 @@ export class ProductsComponent {
   toggleProductDatail() {
     this.showProductDetail = !this.showProductDetail;
   }
+
   onShowDetail(id: string) {
     this.statusDetail = 'loading';
     // this.toggleProductDatail();
-    this.productsService.getProduct(id).subscribe(
+    if (!this.showProductDetail) {
+      this.showProductDetail = true;
+    }
+    this.productsService.getOne(id).subscribe(
       (data) => {
-        this.toggleProductDatail();
         this.productChosen = data;
         this.statusDetail = 'success';
       },
@@ -115,30 +126,30 @@ export class ProductsComponent {
     });
   }
 
-  updateProduct() {
-    const changes: UpdateProductDTO = {
-      title: 'change title',
-    };
-    const id = this.productChosen.id;
-    this.productsService.update(id, changes).subscribe((data) => {
-      const productIndex = this.products.findIndex(
-        (item) => item.id === this.productChosen.id
-      );
-      this.products[productIndex] = data;
-      this.productChosen = data;
-    });
-  }
+  // updateProduct() {
+  //   const changes: UpdateProductDTO = {
+  //     title: 'change title',
+  //   };
+  //   const id = this.productChosen.id;
+  //   this.productsService.update(id, changes).subscribe((data) => {
+  //     const productIndex = this.products.findIndex(
+  //       (item) => item.id === this.productChosen.id
+  //     );
+  //     this.products[productIndex] = data;
+  //     this.productChosen = data;
+  //   });
+  // }
 
-  deleteProduct() {
-    const id = this.productChosen.id;
-    this.productsService.delete(id).subscribe(() => {
-      const productIndex = this.products.findIndex(
-        (item) => item.id == this.productChosen.id
-      );
-      this.products.splice(productIndex, 1);
-      this.showProductDetail = false;
-    });
-  }
+  // deleteProduct() {
+  //   const id = this.productChosen.id;
+  //   this.productsService.delete(id).subscribe(() => {
+  //     const productIndex = this.products.findIndex(
+  //       (item) => item.id == this.productChosen.id
+  //     );
+  //     this.products.splice(productIndex, 1);
+  //     this.showProductDetail = false;
+  //   });
+  // }
   // paginacion cargando cada vez mas 10 elementos a nuestro arreglo
   imgMore() {
     this.leadImgs.emit(true);

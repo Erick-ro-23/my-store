@@ -9,7 +9,7 @@ import { __param } from 'tslib';
 @Component({
   selector: 'app-category',
   template:
-    '<app-products [products]="products" (leadImgs)="loadMore($event)"></app-products>',
+    '<app-products [productId]="productId" [products]="products" (leadImgs)="loadMore($event)"></app-products>',
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
@@ -17,6 +17,7 @@ export class CategoryComponent implements OnInit {
   limit = 10;
   offset = 0;
   products: Producto[] = [];
+  productId: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +42,11 @@ export class CategoryComponent implements OnInit {
       .subscribe((data) => {
         this.products = data;
       });
+    // Para leer los queryParams con id del producto:
+    this.route.queryParamMap.subscribe((params) => {
+      this.productId = params.get('product');
+      console.log(this.productId);
+    });
   }
 
   loadMore(runMoreImg: boolean) {

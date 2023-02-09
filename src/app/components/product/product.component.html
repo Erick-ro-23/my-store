@@ -12,4 +12,5 @@
 <p *ngIf="product.taxes">{{ product.taxes | currency : "COP" }}</p>
 <p appHighlight>{{ product.description }}</p>
 <button (click)="onAddtoCart()">Add cart</button>
-<button (click)="onShowDetail()">Ver Detalle</button>
+<a routerLink="." [queryParams]="{ product: product.id }">Ver detalle</a>
+<!-- <button (click)="onShowDetail()">Ver Detalle</button> -->

@@ -39,7 +39,6 @@
     <button (click)="toggleProductDatail()">Close</button>
     <h1>{{ productChosen.title }}</h1>
     <swiper
-      [direction]="'vertical'"
       [slidesPerView]="1"
       [spaceBetween]="30"
       [mousewheel]="true"
@@ -53,7 +52,9 @@
       </ng-template>
     </swiper>
     <p>{{ productChosen.description }}</p>
-    <button (click)="updateProduct()">Editar</button>
-    <button (click)="deleteProduct()">Delete</button>
+    <!-- <button (click)="updateProduct()">Editar</button>
+    <button (click)="deleteProduct()">Delete</button> -->
   </div>
 </div>
+
+<!-- [direction]="'vertical'" -->
