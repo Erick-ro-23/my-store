@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
-import { Producto } from '../../models/product.model';
-import { ProductsService } from '../../services/products.service';
+import { Producto } from '../../../models/product.model';
+import { ProductsService } from '../../../services/products.service';
 import { __param } from 'tslib';
 
 @Component({

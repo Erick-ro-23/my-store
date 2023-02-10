@@ -5,10 +5,10 @@ import {
   Producto,
   CreateProductoDTO,
   UpdateProductDTO,
-} from '../../models/product.model';
+} from '../../../models/product.model';
 
-import { StoreService } from '../../services/store.service';
-import { ProductsService } from '../../services/products.service';
+import { StoreService } from '../../../services/store.service';
+import { ProductsService } from '../../../services/products.service';
 // import { da } from 'date-fns/locale';
 
 // esto es de swiper nuevo que pruebo
