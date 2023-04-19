@@ -21,8 +21,8 @@ flex-direction: column;
 
       // esto es nuevo de swiper para probar.-----
 
-      @import "~swiper/css";
-      @import "~swiper/css/pagination";
+      // @import "~swiper/css";
+      // @import "~swiper/css/pagination";
       .swiper {
         width: 80%;
         height: 30%;
@@ -56,8 +56,8 @@ flex-direction: column;
         flex-direction: column;
         width: 100%;
         height: 100%;
-        object-fit: contain; //para que la imagen no se deforme y se ajuste al div o cuadro
-        -o-object-fit: contain;
+        -o-object-fit: contain; //para que la imagen no se deforme y se ajuste al div o cuadro
+        object-fit: contain;
       }
 
 }
