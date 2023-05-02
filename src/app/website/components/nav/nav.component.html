@@ -57,7 +57,10 @@
         >
           <span> Login</span>
         </button>
-        <ng-template #elseBlock> {{ profile?.email }}</ng-template>
+        <ng-template #elseBlock>
+        <a routerLink="/profile">{{ profile?.email }}</a>
+        <button (click)="logout()">Logout</button>
+        </ng-template>
       </div>
       <div class="cart">
         <a href="">
@@ -79,3 +82,6 @@
 <!-- <button class="custom-btn btn-12" (click)="getProfile()">
   <span>Click!</span><span>Get Profile</span>
 </button> -->
+
+
+

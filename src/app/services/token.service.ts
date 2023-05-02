@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RuleTester } from 'eslint';
+
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +14,8 @@ export class TokenService {
   getToken() {
     const token = localStorage.getItem('token');
     return token;
+  }
+  removeToken() {
+    localStorage.removeItem('token');
   }
 }

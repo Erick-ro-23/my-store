@@ -19,12 +19,12 @@ export class AppComponent {
   token = '';
   imgRta = '';
 
-  userChosen: User = {
-    id: '',
-    email: '',
-    password: '',
-    name: '',
-  };
+  // userChosen: User = {
+  //   id: '',
+  //   email: '',
+  //   password: '',
+  //   name: '',
+  // };
   users: User[] = [];
   profile = [];
   activeForm = false;
@@ -92,6 +92,7 @@ increaseProduct(index:number){
         name: 'Erick',
         email: 'erickrivao@mail.com',
         password: '1234567',
+        role: 'customer',
       })
       .subscribe((rta) => {
         console.log(rta);
