@@ -79,4 +79,8 @@ export class NavComponent implements OnInit {
     this.profile = null;
     this.router.navigate(['/home']);
   }
+
+  onCreateUser(){
+    this.appComponent.createUser();
+  }
 }
